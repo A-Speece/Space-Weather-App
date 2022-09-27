@@ -32,12 +32,29 @@
  <!-- About Content Body Text -->
 
  <!-- Date Form Entry -->
+ <div style="text-align: center;">
+  <h4>Select a date</h4>
+  <form>
+    <div class="box">
+      <label for="date">Select a date:</label>
+      <input type="date" class="datepicker"> 
+      <input type="submit">
+    </div>
 
+  </form>
+ </div>
+
+  
  <!-- Minified JavaScript source for Materialize -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
  <!-- JavaScript source in our folders -->
  <script src="assets/script.js"></script>
+
+ <script>
+  var calender = document.querySelector(".datepicker");
+  M.Datepicker.init(calender,{});
+  </script>
 </body>
 
-</body>
+
 </html>
