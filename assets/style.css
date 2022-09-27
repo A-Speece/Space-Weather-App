@@ -1,5 +1,4 @@
 
-
 /* Font style applied to whole content doc */
 div {
  font-family: 'Comfortaa', cursive;
@@ -10,3 +9,17 @@ div {
  margin: 50px;
  padding: 25px;
 }
+
+#main-page-event-card {
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    
+    }
+
