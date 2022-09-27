@@ -1,6 +1,7 @@
-*
-
-
+#main-page-event-card {
+  display: flex;
+  justify-content: center;
+}
 
 .box{
     margin: auto;
