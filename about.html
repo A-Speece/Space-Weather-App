@@ -8,16 +8,20 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <!-- Link to our CSS Stylesheet -->
  <link rel="stylesheet" href="assets/style.css">
+   <!-- Google Fonts Link -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
- <div>
-  <h1>About</h1>
+ <!-- Title Header -->
+ <div class="header">
+  <h1>Space Weather App</h1>
  </div>
-
  <!-- Nav Bar Menu -->
  <div>
   <nav>
-   <div class="nav-wrapper">
+   <div class="nav-wrapper teal lighten-2">
      <a href="#" class="brand-logo">Logo</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
        <li><a href="index.html">Home</a></li>
@@ -29,9 +33,13 @@
  </nav>
  </div>
 
- <div>
-  <p>A little about our app!!</p>
+ <div class="container">
+  <div class="aboutContent">
+   <h4 class="center-align">About our Web app</h4>
+   <p class="center-align, flow-text">Our Web app is a simple way for users to determine what celestial weather events are happening globally at a date of the users choosing. On our homepage, the user can select today's date or any previous date to get a list of events for that selected date from NASA's own weather monitoring data. You can find out more about NASA's space weather models and their mission <a href="https://ccmc.gsfc.nasa.gov/tools/DONKI/" target="_blank">here</a>!</p>
+  </div>
  </div>
+
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
  <!-- JavaScript source in our folders -->
