@@ -1,12 +1,18 @@
 //Request link for the DONKI call
 var donkiRequestLink =
-  "https://api.nasa.gov/DONKI/notifications?startDate=2022-09-25&endDate=2022-09-27&type=all&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
+  "https://api.nasa.gov/DONKI/notifications?startDate=" +
+  dateSubmitInput +
+  "&endDate=" +
+  dateSubmitInput +
+  "&type=all&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
 
 //Variables for the index page
 var dateForm = document.getElementById("dateSubmit");
 var eventCard = document.getElementById("main-page-event-card");
 var eventCardImage = document.getElementById("event-card-image");
 var cardTitle = document.querySelector(".card-title");
+var inputDate = document.querySelector(".datepicker");
+var dateSubmitInput = "";
 
 //Request link for the APOD call
 var apodRequestLink =
@@ -38,7 +44,19 @@ function apodApiCall() {
 //Submit event to call the DONKI API
 dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
+  console.log(donkiRequestLink);
+  dateSubmitInput = String(inputDate.value);
   donkiApiCall();
+  //need to update to use submitted day for picture on the card.
   apodApiCall();
   eventCard.style.display = "flex";
+
+  console.log(donkiRequestLink);
+});
+
+//Initializing date submission form
+
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".datepicker");
+  var instances = M.Datepicker.init(elems, { format: "yyyy-mm-dd" });
 });
