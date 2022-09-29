@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
- <!-- Minified CSS Stylesheet CDN for Materialize -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
- <!-- Link to our CSS Stylesheet -->
- <link rel="stylesheet" href="assets/style.css">
- <!-- Google Fonts Link -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
- <!-- Title Header -->
- <div class="header">
-  <h1>Space Weather App</h1>
- </div>
-
- <!-- Nav Bar Menu -->
-<div>
- <nav>
-  <div class="nav-wrapper teal lighten-2">
-    <a href="#" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="index.html">Home</a></li> 
-      <li><a href="about.html">About</a></li>
-      <li><a href="info.html">Learn More</a></li>
-      <li><a href="daily.html">Surprise Me</a></li>
-    </ul>
-  </div>
-</nav>
-</div>
- <!-- About Content Body Text -->
-
- <!-- Date Form Entry -->
- <div style="text-align: center;">
-  <h4>Select a date</h4>
-  <form id="dateSubmit">
-    <div class="box">
-      <label for="date">Select a date:</label>
-      <input type="date" class="datepicker"> 
-      <input type="submit">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Minified CSS Stylesheet CDN for Materialize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Link to our CSS Stylesheet -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Title Header -->
+    <div class="header">
+      <h1>Space Weather App</h1>
     </div>
-    </form>
- </div>
 
- <!-- Card that holds images and links for date search -->
- <div class="row">
-  <div id="main-page-event-card">
-    <div class="card" style="max-width: 750px">
-      <div class="card-image">
-        <img id="event-card-image"  src="https://transmitter.ieee.org/wp-content/uploads/2017/06/Space-weather-620x290.jpg">
-        <span class="card-title">Picture's Name</span>
-      </div>
-    
-      <div class="card-content">
-        <h5>Today's Space Weather Events:</h5>
-       <ol>
-        <li id="event1">event</li>
-        <li id="event2">event</li>
-        <li id="event3">event</li>
-        <li id="event4">event</li>
-       </ol>
-      </div>
-      <div class="card-action">
-        <a href="info.html">Click For More Information</a>
+    <!-- Nav Bar Menu -->
+    <div>
+      <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="info.html">Learn More</a></li>
+            <li><a href="daily.html">Surprise Me</a></li>
+          </ul>
         </div>
+      </nav>
     </div>
-  </div>
-</div>
-       
- <!-- Minified JavaScript source for Materialize -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
- <!-- JavaScript source in our folders -->
- <script src="assets/script.js"></script>
+    <!-- About Content Body Text -->
 
- <script>
-  var calender = document.querySelector(".datepicker");
-  M.Datepicker.init(calender,{});
-  </script>
-</body>
+    <!-- Date Form Entry -->
+    <div style="text-align: center">
+      <h4>Select a date</h4>
+      <form id="dateSubmit">
+        <div class="box">
+          <label for="date">Select a date:</label>
+          <input type="date" class="datepicker" />
+          <input type="submit" />
+        </div>
+      </form>
+    </div>
 
+    <!-- Card that holds images and links for date search -->
+    <div class="row">
+      <div id="main-page-event-card">
+        <div class="card" style="max-width: 750px">
+          <div class="card-image">
+            <img id="event-card-image" />
+            <span class="card-title">Picture's Name</span>
+          </div>
 
+          <div class="card-content">
+            <h5>Today's Space Weather Events:</h5>
+            <ol>
+              <li id="event1">event</li>
+              <li id="event2">event</li>
+              <li id="event3">event</li>
+              <li id="event4">event</li>
+            </ol>
+          </div>
+          <div class="card-action">
+            <a href="info.html">Click For More Information</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Minified JavaScript source for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- JavaScript source in our folders -->
+    <script src="assets/script.js"></script>
+
+    <script>
+      var calender = document.querySelector(".datepicker");
+      M.Datepicker.init(calender, {});
+    </script>
+  </body>
 </html>
