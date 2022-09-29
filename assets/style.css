@@ -11,7 +11,7 @@ div {
 }
 
 #main-page-event-card {
-  display: flex;
+  display: none;
   justify-content: center;
 }
 
