@@ -1,10 +1,5 @@
-//Request link for the DONKI call
-var donkiRequestLink =
-  "https://api.nasa.gov/DONKI/notifications?startDate=" +
-  dateSubmitInput +
-  "&endDate=" +
-  dateSubmitInput +
-  "&type=all&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
+//Request link for the NEOW call
+var NEOWRequestLink = "";
 
 //Variables for the index page
 var dateForm = document.getElementById("dateSubmit");
@@ -15,12 +10,11 @@ var inputDate = document.querySelector(".datepicker");
 var dateSubmitInput = "";
 
 //Request link for the APOD call
-var apodRequestLink =
-  "https://api.nasa.gov/planetary/apod?api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
-
-//Fetch request for the DONKI API
-function donkiApiCall(event) {
-  fetch(donkiRequestLink)
+var apodRequestLink = "";
+ 
+//Fetch request for the NEOW API
+function NEOWApiCall(event) {
+  fetch(NEOWRequestLink)
     .then(function (res) {
       return res.json();
     })
@@ -41,17 +35,19 @@ function apodApiCall() {
     });
 }
 
-//Submit event to call the DONKI API
+//Submit event to call the both APOD and NEOWs API
 dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  console.log(donkiRequestLink);
   dateSubmitInput = String(inputDate.value);
-  donkiApiCall();
-  //need to update to use submitted day for picture on the card.
+
+  NEOWRequestLink = "https://api.nasa.gov/neo/rest/v1/feed?start_date=" +
+  dateSubmitInput + "&end_date=" +
+  dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
+  NEOWApiCall();
+
+  apodRequestLink = "https://api.nasa.gov/planetary/apod?date=" + dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
   apodApiCall();
   eventCard.style.display = "flex";
-
-  console.log(donkiRequestLink);
 });
 
 //Initializing date submission form
