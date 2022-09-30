@@ -35,6 +35,11 @@ function apodApiCall() {
     });
 }
 
+// Storage in Local Client
+function localStorageData() {
+ localStorage.setItem("Submitted Dates", dateSubmitInput);
+};
+
 //Submit event to call the both APOD and NEOWs API
 dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -48,7 +53,12 @@ dateForm.addEventListener("submit", function (event) {
   apodRequestLink = "https://api.nasa.gov/planetary/apod?date=" + dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
   apodApiCall();
   eventCard.style.display = "flex";
+
+  localStorageData();
+  console.log(localStorage);
 });
+
+console.log(addEventListener);
 
 //Initializing date submission form
 
