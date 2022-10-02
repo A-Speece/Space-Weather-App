@@ -13,6 +13,7 @@ var neowArray=[]
 
 //Request link for the APOD call
 var apodRequestLink = "";
+var currentDate = new Date().toJSON().slice(0, 10);
  
 //Fetch request for the NEOW API
 function NEOWApiCall() {
@@ -41,8 +42,19 @@ function apodApiCall() {
       return res.json();
     })
     .then(function (data) {
-      eventCardImage.src = data.url;
-      cardTitle.textContent = data.title;
+
+      console.log(typeof data.url);
+
+      if(typeof data.url == "undefined"){
+        console.log("working")
+
+        eventCardImage.src = "https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_deep_field_smacs0723-5mb.jpg";
+        cardTitle.textContent = "Webb’s First Deep Field";
+      }
+      else{
+        eventCardImage.src = data.url;
+        cardTitle.textContent = data.title;
+      }
     });
 }
 
