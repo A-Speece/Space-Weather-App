@@ -8,6 +8,8 @@ var eventCardImage = document.getElementById("event-card-image");
 var cardTitle = document.querySelector(".card-title");
 var inputDate = document.querySelector(".datepicker");
 var dateSubmitInput = "";
+var cardlist = document.getElementById("neowItems")
+var neowArray=[]
 
 var previous_dates = document.getElementById("previous_dates");
 var date_cards_wrap = document.getElementsByClassName(".date_cards_wrap");
@@ -21,16 +23,25 @@ var previousDatesStorage = document.querySelector(".local_storage")
 var apodRequestLink = "";
  
 //Fetch request for the NEOW API
-function NEOWApiCall(event) {
+function NEOWApiCall() {
   fetch(NEOWRequestLink)
     .then(function (res) {
       return res.json();
     })
-    .then(function (data) {
-      console.log(data);
-    });
-}
+    .then(function (data) { 
+       neowArray =data.near_earth_objects[dateSubmitInput]
+    
+      console.log(neowArray)
 
+      for (var I = 0; I < neowArray.length; I++) {
+        var li = document.createElement("li");
+        li.textContent = neowArray[I].name;
+        cardlist.append(li);
+      }
+
+    });
+
+}
 //Pull request for the Picture of the Day API
 function apodApiCall() {
   fetch(apodRequestLink)
