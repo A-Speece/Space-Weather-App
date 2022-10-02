@@ -13,7 +13,6 @@ var neowArray=[]
 
 //Request link for the APOD call
 var apodRequestLink = "";
-var currentDate = new Date().toJSON().slice(0, 10);
  
 //Fetch request for the NEOW API
 function NEOWApiCall() {
