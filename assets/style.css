@@ -21,6 +21,10 @@ div {
   justify-content: center;
 }
 
+.haz {
+  color: red;
+}
+
 .box{
  margin: auto;
  width: 50%;

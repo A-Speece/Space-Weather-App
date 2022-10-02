@@ -29,19 +29,34 @@ function NEOWApiCall() {
       return res.json();
     })
     .then(function (data) { 
-       neowArray =data.near_earth_objects[dateSubmitInput]
+      neowArray = data.near_earth_objects[dateSubmitInput]
     
       console.log(neowArray)
 
       for (var I = 0; I < neowArray.length; I++) {
         var li = document.createElement("li");
         li.textContent = neowArray[I].name;
+        if(neowArray[I].is_potentially_hazardous_asteroid){
+          li.setAttribute("class", "neow haz");
+        } else {
+          li.setAttribute("class", "neow nonhaz");
+        }
         cardlist.append(li);
       }
 
     });
 
 }
+
+//Function to remove children from the ordred list
+function emptyList(){
+  if(cardlist.children.length > 0){
+    var item = document.querySelector(".neow");
+    cardlist.removeChild(item);
+    emptyList();
+  }
+}
+ 
 //Pull request for the Picture of the Day API
 function apodApiCall() {
   fetch(apodRequestLink)
@@ -49,8 +64,15 @@ function apodApiCall() {
       return res.json();
     })
     .then(function (data) {
-      eventCardImage.src = data.url;
-      cardTitle.textContent = data.title;
+
+      if(typeof data.url == "undefined"){
+        eventCardImage.src = "https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_deep_field_smacs0723-5mb.jpg";
+        cardTitle.textContent = "Webb’s First Deep Field";
+      }
+      else{
+        eventCardImage.src = data.url;
+        cardTitle.textContent = data.title;
+      }
     });
 }
 
@@ -71,6 +93,7 @@ dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
   dateSubmitInput = String(inputDate.value);
 
+  emptyList();
   NEOWRequestLink = "https://api.nasa.gov/neo/rest/v1/feed?start_date=" +
   dateSubmitInput + "&end_date=" +
   dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
