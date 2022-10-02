@@ -1,13 +1,12 @@
-
 /* Font style applied to whole content doc */
 div {
- font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
 }
 
 .aboutContent {
- display: block;
- margin: 50px;
- padding: 25px;
+  display: block;
+  margin: 50px;
+  padding: 25px;
 }
 
 #main-page-event-card {
@@ -15,11 +14,14 @@ div {
   justify-content: center;
 }
 
-.box{
-    margin: auto;
-    width: 50%;
-    border: 3px solid black;
-    padding: 10px;
-    
-    }
+.box {
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+}
 
+#daily-pic {
+  width: 100%;
+  height: auto;
+}
