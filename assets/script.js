@@ -11,6 +11,14 @@ var dateSubmitInput = "";
 var cardlist = document.getElementById("neowItems")
 var neowArray=[]
 
+var previous_dates = document.getElementById("previous_dates");
+var date_cards_wrap = document.getElementsByClassName(".date_cards_wrap");
+var date_card_item = document.getElementsByClassName(".date_card_item");
+var date_card_inner = document.getElementsByClassName(".date_card_inner");
+var date_card_name = document.getElementsByClassName(".date_card_name");
+var previousDatesStorage = document.querySelector(".local_storage")
+
+
 //Request link for the APOD call
 var apodRequestLink = "";
  
@@ -46,6 +54,18 @@ function apodApiCall() {
     });
 }
 
+// Storage in Local Client
+function localStorageData() {
+ localStorage.setItem("submittedDates", dateSubmitInput);
+ var li = document.createElement("li");
+ li.textContent = localStorage.getItem("submittedDates");
+ previousDatesStorage.append(li);
+
+};
+
+
+
+
 //Submit event to call the both APOD and NEOWs API
 dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -59,6 +79,20 @@ dateForm.addEventListener("submit", function (event) {
   apodRequestLink = "https://api.nasa.gov/planetary/apod?date=" + dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
   apodApiCall();
   eventCard.style.display = "flex";
+
+
+  previous_dates.style.display = "flex";
+  localStorageData();
+  console.log(localStorage);
+  dateSubmitInput = String(inputDate.value);
+
+  document.addEventListener("DOMContentLoaded", function (){
+   var date_card_inner = document.querySelectorAll(".date_selections");
+   var instances = M.Datepicker.init(date_selections, { format: "yyyy-mm-dd" });
+  })
+
+
+
 });
 
 //Initializing date submission form
