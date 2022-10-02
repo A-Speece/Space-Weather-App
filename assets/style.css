@@ -23,11 +23,13 @@ div {
     
     }
 
-/* Three columns side by side */
+/* columns side by side */
 .column {
-  float: ce;
+  display: flex;
+  flex-direction: column;
+  float: left; 
   width: 25%;
-  margin-bottom: 16px;
+ margin-bottom: 16px;
   padding: 0 8px;
 }
 
@@ -39,7 +41,7 @@ div {
   }
 }
 
-/* Add some shadows to create a card effect */
+/* shadows to create a card effect */
 .cardo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
