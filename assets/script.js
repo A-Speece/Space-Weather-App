@@ -11,6 +11,14 @@ var dateSubmitInput = "";
 var cardlist = document.getElementById("neowItems")
 var neowArray=[]
 
+var previous_dates = document.getElementById("previous_dates");
+var date_cards_wrap = document.getElementsByClassName(".date_cards_wrap");
+var date_card_item = document.getElementsByClassName(".date_card_item");
+var date_card_inner = document.getElementsByClassName(".date_card_inner");
+var date_card_name = document.getElementsByClassName(".date_card_name");
+var previousDatesStorage = document.querySelector(".local_storage")
+
+
 //Request link for the APOD call
 var apodRequestLink = "";
  
@@ -21,19 +29,34 @@ function NEOWApiCall() {
       return res.json();
     })
     .then(function (data) { 
-       neowArray =data.near_earth_objects[dateSubmitInput]
+      neowArray = data.near_earth_objects[dateSubmitInput]
     
       console.log(neowArray)
 
       for (var I = 0; I < neowArray.length; I++) {
         var li = document.createElement("li");
         li.textContent = neowArray[I].name;
+        if(neowArray[I].is_potentially_hazardous_asteroid){
+          li.setAttribute("class", "neow haz");
+        } else {
+          li.setAttribute("class", "neow nonhaz");
+        }
         cardlist.append(li);
       }
 
     });
 
 }
+
+//Function to remove children from the ordred list
+function emptyList(){
+  if(cardlist.children.length > 0){
+    var item = document.querySelector(".neow");
+    cardlist.removeChild(item);
+    emptyList();
+  }
+}
+ 
 //Pull request for the Picture of the Day API
 function apodApiCall() {
   fetch(apodRequestLink)
@@ -41,16 +64,36 @@ function apodApiCall() {
       return res.json();
     })
     .then(function (data) {
-      eventCardImage.src = data.url;
-      cardTitle.textContent = data.title;
+
+      if(typeof data.url == "undefined"){
+        eventCardImage.src = "https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_deep_field_smacs0723-5mb.jpg";
+        cardTitle.textContent = "Webb’s First Deep Field";
+      }
+      else{
+        eventCardImage.src = data.url;
+        cardTitle.textContent = data.title;
+      }
     });
 }
+
+// Storage in Local Client
+function localStorageData() {
+ localStorage.setItem("submittedDates", dateSubmitInput);
+ var li = document.createElement("li");
+ li.textContent = localStorage.getItem("submittedDates");
+ previousDatesStorage.append(li);
+
+};
+
+
+
 
 //Submit event to call the both APOD and NEOWs API
 dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
   dateSubmitInput = String(inputDate.value);
 
+  emptyList();
   NEOWRequestLink = "https://api.nasa.gov/neo/rest/v1/feed?start_date=" +
   dateSubmitInput + "&end_date=" +
   dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
@@ -59,6 +102,20 @@ dateForm.addEventListener("submit", function (event) {
   apodRequestLink = "https://api.nasa.gov/planetary/apod?date=" + dateSubmitInput + "&api_key=Us6SCvqicethXJF9XZMvhpLxkwxbofi3k65LCDTa";
   apodApiCall();
   eventCard.style.display = "flex";
+
+
+  previous_dates.style.display = "flex";
+  localStorageData();
+  console.log(localStorage);
+  dateSubmitInput = String(inputDate.value);
+
+  document.addEventListener("DOMContentLoaded", function (){
+   var date_card_inner = document.querySelectorAll(".date_selections");
+   var instances = M.Datepicker.init(date_selections, { format: "yyyy-mm-dd" });
+  })
+
+
+
 });
 
 //Initializing date submission form
