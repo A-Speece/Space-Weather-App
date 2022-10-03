@@ -66,7 +66,6 @@ function NEOWApiCall() {
 function getStorageDate() {
   var dateArray = JSON.parse(localStorage.getItem("submittedDates"));
   dateSubmitInput = dateArray[dateArray.length-1];
-  console.log(dateSubmitInput);
 }
 
 NEOWApiCall();

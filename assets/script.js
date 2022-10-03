@@ -31,8 +31,6 @@ function NEOWApiCall() {
     })
     .then(function (data) { 
       neowArray = data.near_earth_objects[dateSubmitInput]
-    
-      console.log(neowArray)
 
       for (var I = 0; I < neowArray.length; I++) {
         var li = document.createElement("li");
@@ -92,6 +90,12 @@ function localStorageData() {
 dateForm.addEventListener("submit", function (event) {
   event.preventDefault();
   dateSubmitInput = String(inputDate.value);
+
+  //Check to see if the same date was submited
+  if(dateSubmitInput == previousDates[previousDates.length-1] ){
+    return;
+  }
+
   previousDates.push(dateSubmitInput);
 
   emptyList();
@@ -106,7 +110,6 @@ dateForm.addEventListener("submit", function (event) {
 
   previous_dates.style.display = "flex";
   localStorageData();
-  console.log(localStorage);
 });
 
 //Initializing date submission form
