@@ -33,13 +33,13 @@ div {
 }
 
 
-
-/* Three columns side by side */
+side by side */
 .column {
   float: left;
-  width: 33.3%;
+  width: 25%;
   margin-bottom: 16px;
   padding: 0 8px;
+  display: flex;
 }
 
 /* Display the columns below each other instead of side by side on small screens */
@@ -48,6 +48,13 @@ div {
     width: 100%;
     display: block;
   }
+}
+
+.pick {
+justify-content: center;
+display: grid;
+width: 50%;
+height: 50%;
 }
 
 /* Add some shadows to create a card effect */
