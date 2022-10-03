@@ -163,4 +163,14 @@
    width: 100%;
    height: auto;
  }
+
+ /* Styling for the info page */
+ .haz-card {
+  background-color: rgba(190, 8, 8, 0.5);
+  padding: 5px 15px 15px;
+ }
+
+ .nonhaz-card {
+  padding: 5px 15px 15px;
+ }
  
