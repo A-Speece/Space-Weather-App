@@ -21,6 +21,10 @@ div {
   justify-content: center;
 }
 
+#previous_dates {
+  display: none;
+}
+
 .haz {
   color: red;
 }
