@@ -32,6 +32,7 @@ function NEOWApiCall() {
           cardDiv.setAttribute("class", "card nonhaz-card");
         }
         dailyContent.append(cardDiv);
+
         var name = document.createElement("h5");
         var size = document.createElement("li");
         var missDistance = document.createElement("li");
@@ -60,11 +61,11 @@ function NEOWApiCall() {
       }
     });
 }
+
 // function to get the input date from local storage to be used for the api call//
 function getStorageDate() {
   var dateArray = JSON.parse(localStorage.getItem("submittedDates"));
   dateSubmitInput = dateArray[dateArray.length-1];
-  console.log(dateSubmitInput);
 }
 
 NEOWApiCall();
