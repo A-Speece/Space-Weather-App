@@ -37,14 +37,13 @@ div {
 }
 
 
-/* columns side by side */
+side by side */
 .column {
-  display: flex;
-  flex-direction: column;
-  float: left; 
+  float: left;
   width: 25%;
- margin-bottom: 16px;
+  margin-bottom: 16px;
   padding: 0 8px;
+  display: flex;
 }
 
 /* Display the columns below each other instead of side by side on small screens */
@@ -55,7 +54,14 @@ div {
   }
 }
 
-/* shadows to create a card effect */
+.pick {
+justify-content: center;
+display: grid;
+width: 50%;
+height: 50%;
+}
+
+/* Add some shadows to create a card effect */
 .cardo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -91,6 +97,9 @@ div {
 .button:hover {
   background-color: #555;
 }
+
+
+
 
 .date_cards_wrap{
  background-color: lightsteelblue;
